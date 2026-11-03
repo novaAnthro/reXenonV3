@@ -2,7 +2,7 @@
 -- Reconstructs the GUI with Instance.new; no Roblox model asset is downloaded.
 local function convert(v)
  if type(v)~="table" then return v end
- if v.__enum then local e=Enum[v.__enum];if not e then return nil end;return e:GetEnumItems()[v.__index+1] end
+ if v.__enum then local e=Enum[v.__enum];if not e then return nil end;for _,item in ipairs(e:GetEnumItems()) do if item.Value==v.__index then return item end end;return nil end
  local t=v.__type
  if t=="Vector2" then return Vector2.new(v[1],v[2]) elseif t=="Color3" then return Color3.new(v[1],v[2],v[3]) elseif t=="UDim" then return UDim.new(v[1],v[2]) elseif t=="UDim2" then return UDim2.new(v[1],v[2],v[3],v[4]) elseif t=="Rect" then return Rect.new(v[1],v[2],v[3],v[4]) end
  if t=="ColorSequence" then local p={};for i=1,#v,5 do if v[i+4]~=nil then p[#p+1]=ColorSequenceKeypoint.new(v[i],Color3.new(v[i+1],v[i+2],v[i+3])) end end;return #p>0 and ColorSequence.new(p) or nil end
