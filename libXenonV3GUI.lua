@@ -13,6 +13,9 @@ Assist = {
     end;
 }
 Library.__index = Library
+
+-- Build the GUI locally from Instance.new definitions (no Roblox model asset).
+local BuildGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/wut780/xenonV3_extr/main/XenonV3GUIBuilder.lua"))()
 setmetatable(Assist, Assist)
 
 --// Prerun
@@ -86,7 +89,7 @@ function Library.CreateLib(...)
         ["Arguments"] = {
             "XenonV3";
 
-            ["UI"] = game:GetObjects("rbxassetid://12403182534")[1];
+            ["UI"] = BuildGUI();
             ["Tabs"] = {};
             ["ToggleKey"] = Enum.KeyCode.RightAlt;
             ["BottomMenuToggleKey"] = Enum.KeyCode.RightControl;
