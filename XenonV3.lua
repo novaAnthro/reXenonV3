@@ -428,7 +428,7 @@ function Xenon.Utils:IsMax(Item)
             Max[i] = v * 2
         end
     end
-    --self:WaitTillBackpackLoaded()
+    --self:WaitTillBackpackLoaded() -- Неиспользуемый вызов, оставлен для справки
     return self:CountItem(Item) >= Max[Item]
 end
 
@@ -711,7 +711,7 @@ function Xenon.Utils:CheckShiny()
     local Character = self:GetCharacter()
     if not Character:FindFirstChild("RemoteFunction") then Character:WaitForChild("RemoteFunction") end
     if Character and Character:FindFirstChild("RemoteFunction") then
-	--print(Character.RemoteFunction:InvokeServer("ReturnStandSkin", "Stand"))
+	--print(Character.RemoteFunction:InvokeServer("ReturnStandSkin", "Stand")) -- Отладочный вызов
         return Character.RemoteFunction:InvokeServer("ReturnStandSkin", "Stand")
     else 
         return
@@ -1420,7 +1420,7 @@ Util:AddValues{
         Cache = {
             ["Speed"] = 16;
             ["Jump"] = 50;
-            --["MoveDirection"] = Vector3.new(0,0,0)
+            --["MoveDirection"] = Vector3.new(0,0,0) -- Необязательный параметр направления
             ["Waypoint"] = nil;
             ["Spawnpoint"] = nil;
         };
@@ -3129,19 +3129,19 @@ if Util:IsSBR() then
             HRP.CFrame = SBRTeleports["Stage 1 Barrier"] -- Ожидание перед возвращением в укрытие
             task.wait(Util:GetInt("SBR_Delay_Hide"))
             HRP.CFrame = SBRTeleports["Normal Hide"] -- Ожидание открытия первого этапа
-            repeat task.wait() until workspace.Barriers:FindFirstChild("1") == nil -- Wait until tp to stage 2 vvv
+            repeat task.wait() until workspace.Barriers:FindFirstChild("1") == nil -- Ожидание перехода ко второму этапу
 
             task.wait(Util:GetInt("SBR_Delay_2")) -- Перемещение к барьеру второго этапа
             HRP.CFrame = SBRTeleports["Stage 2 Barrier"] -- Ожидание перед возвращением в укрытие
             task.wait(Util:GetInt("SBR_Delay_Hide"))
             HRP.CFrame = SBRTeleports["Normal Hide"] -- Ожидание открытия второго этапа
-            repeat task.wait() until workspace.Barriers:FindFirstChild("2") == nil -- Wait until tp to stage 3 vvv
+            repeat task.wait() until workspace.Barriers:FindFirstChild("2") == nil -- Ожидание перехода к третьему этапу
 
             task.wait(Util:GetInt("SBR_Delay_3")) -- Перемещение к барьеру третьего этапа
             HRP.CFrame = SBRTeleports["Stage 3 Barrier"] -- Ожидание перед возвращением в укрытие
             task.wait(Util:GetInt("SBR_Delay_Hide")) 
             HRP.CFrame = SBRTeleports["Normal Hide"]-- Ожидание открытия третьего этапа
-            repeat task.wait() until workspace.Barriers:FindFirstChild("3") == nil -- Wait until tp to stage 4 vvv
+            repeat task.wait() until workspace.Barriers:FindFirstChild("3") == nil -- Ожидание перехода к четвёртому этапу
 
             task.wait(Util:GetInt("SBR_Delay_4")) -- Перемещение к барьеру четвёртого этапа
             HRP.CFrame = SBRTeleports["Stage 4 Barrier"] -- Ожидание перед возвращением в укрытие
