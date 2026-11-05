@@ -111,7 +111,8 @@ function Xenon.Utils:ReadData()
     local Success, Error = pcall(function()
         Data = self.Services.HttpService:JSONDecode(readfile(self.Settings.ConfigName))
     end);
-    Data = Data or loadstring(game:HttpGet("https://pastebin.com/raw/XXkRbtKN"))()
+    -- При первом запуске используем пустую конфигурацию; значения по умолчанию задаются ниже через AddValues.
+    Data = Data or {}
     return {
         Data = Data;
         Success = Success;
