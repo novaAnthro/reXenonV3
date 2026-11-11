@@ -134,7 +134,7 @@ GUI-модуль загружается как отдельная библиот
 
 ```lua
 local Library = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/wut780/xenonV3_extr/main/libXenonV3GUI.lua"
+    "https://raw.githubusercontent.com/novaAnthro/reXenonV3/main/libXenonV3GUI.lua"
 ))()
 ```
 

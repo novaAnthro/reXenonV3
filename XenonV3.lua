@@ -24,7 +24,7 @@ local cf = CFrame.new
 local hf = 1
 
 --// Подключение библиотеки пользовательского интерфейса
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/wut780/xenonV3_extr/main/libXenonV3GUI.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/novaAnthro/reXenonV3/main/libXenonV3GUI.lua"))()
 
 --// Основной модуль Xenon V3
 function Xenon.Utils.MakeUtilController(Settings)

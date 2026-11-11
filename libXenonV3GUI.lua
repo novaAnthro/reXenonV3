@@ -15,7 +15,7 @@ Assist = {
 Library.__index = Library
 
 -- Build the GUI locally from Instance.new definitions (no Roblox model asset).
-local BuildGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/wut780/xenonV3_extr/main/XenonV3GUIBuilder.lua"))()
+local BuildGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/novaAnthro/reXenonV3/main/XenonV3GUIBuilder.lua"))()
 setmetatable(Assist, Assist)
 
 --// Prerun
